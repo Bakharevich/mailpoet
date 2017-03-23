@@ -1,0 +1,64 @@
+DROP TABLE IF EXISTS subscribers;
+DROP TABLE IF EXISTS newsletters;
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS newsletters_events;
+DROP TABLE IF EXISTS listings;
+DROP TABLE IF EXISTS listing_subscriber;
+DROP TABLE IF EXISTS newsletter_listing;
+
+CREATE TABLE IF NOT EXISTS subscribers
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR( 225 ),
+  email VARCHAR( 225 )
+);
+
+CREATE TABLE IF NOT EXISTS newsletters
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  type VARCHAR( 225 ),
+  subject VARCHAR( 225 ),
+  body TEXT,
+  schedule DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS newsletters
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  type VARCHAR( 225 ),
+  subject VARCHAR( 225 ),
+  body TEXT,
+  schedule DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS listings
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR( 225 )
+);
+
+CREATE TABLE IF NOT EXISTS posts
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR( 225 ),
+  content VARCHAR( 225 )
+);
+
+CREATE TABLE IF NOT EXISTS newsletters_events
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  newsletter_id INTEGER,
+  name VARCHAR( 225 )
+);
+
+CREATE TABLE IF NOT EXISTS listing_subscriber
+(
+  listing_id INTEGER NOT NULL,
+  subscriber_id INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS newsletter_listing
+(
+  newsletter_id INTEGER NOT NULL,
+  listing_id INTEGER NOT NULL
+);
